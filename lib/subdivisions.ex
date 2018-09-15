@@ -43,7 +43,10 @@ defmodule Countries.Subdivisions do
     end
 
     try do
-      data_path.("subdivisions/#{country_code}.yaml") |> :yamerl.decode_file |> List.first
+      data_path.("subdivisions/#{country_code}.yaml")
+      |> IO.inspect(label: "SUBDIVISIONS PATH ----------------->")
+      |> :yamerl.decode_file
+      |> List.first
     catch
       _exception -> []
     end

@@ -13,6 +13,7 @@ defmodule Countries.Loader do
   #    [%{name: "Germany', code: "DE"}, %{name: 'Austria', code: "AT"}]
   def load do
     data_path("countries.yaml")
+    |> IO.inspect(label: "COUNTRIES PATH ----------------->")
     |> :yamerl.decode_file
     |> List.first
     |> Enum.flat_map(fn code ->
